@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from backend.app.models.rol_permiso_model import (
+from app.models.rol_permiso_model import (
     asignar_permiso,
     obtener_permisos_rol,
     quitar_permiso
