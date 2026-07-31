@@ -9,6 +9,8 @@ from app.routes.roles import router as roles_router
 from app.routes.permisos import router as permisos_router
 from app.routes.roles_permisos import router as roles_permisos_router
 from app.routes.menus import router as menus_router
+from app.routes.usuarios import router as usuarios_router
+from app.routes.vehiculos import router as vehiculos_router
 
 
 app = FastAPI(
@@ -33,6 +35,7 @@ app.include_router(roles_router)
 app.include_router(permisos_router)
 app.include_router(roles_permisos_router)
 app.include_router(menus_router)
+app.include_router(vehiculos_router)
 
 
 @app.get("/")
