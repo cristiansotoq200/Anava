@@ -13,7 +13,8 @@ function MainLayout({ children }) {
   const rolId =
     localStorage.getItem("rol_id");
 
-  const [menus, setMenus] = useState([]);
+  const [menus, setMenus] =
+    useState([]);
 
   useEffect(() => {
 
@@ -58,7 +59,8 @@ function MainLayout({ children }) {
     <div
       style={{
         display: "flex",
-        height: "100vh"
+        minHeight: "100vh",
+        backgroundColor: "#F1F5F9"
       }}
     >
 
@@ -67,7 +69,8 @@ function MainLayout({ children }) {
           width: "250px",
           backgroundColor: "#0F172A",
           color: "white",
-          padding: "20px"
+          padding: "20px",
+          flexShrink: 0
         }}
       >
 
@@ -99,24 +102,26 @@ function MainLayout({ children }) {
 
         <hr />
 
-        {menus.map((menu) => (
+        {
+          menus.map((menu) => (
 
-          <Link
-            key={menu.id}
-            to={menu.ruta}
-            style={{
-              display: "block",
-              color: "white",
-              textDecoration: "none",
-              padding: "10px",
-              marginBottom: "5px",
-              borderRadius: "5px"
-            }}
-          >
-            {menu.nombre}
-          </Link>
+            <Link
+              key={menu.id}
+              to={menu.ruta}
+              style={{
+                display: "block",
+                color: "white",
+                textDecoration: "none",
+                padding: "10px",
+                marginBottom: "5px",
+                borderRadius: "5px"
+              }}
+            >
+              {menu.nombre}
+            </Link>
 
-        ))}
+          ))
+        }
 
         <hr />
 
@@ -137,10 +142,23 @@ function MainLayout({ children }) {
         style={{
           flex: 1,
           padding: "30px",
+          overflowY: "auto",
           backgroundColor: "#F1F5F9"
         }}
       >
-        {children}
+
+        <div
+          style={{
+            width: "100%",
+            maxWidth: "1600px",
+            margin: "0 auto"
+          }}
+        >
+
+          {children}
+
+        </div>
+
       </div>
 
     </div>
